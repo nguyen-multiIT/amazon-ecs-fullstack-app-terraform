@@ -6,6 +6,7 @@ const app = express();
 var cors = require('cors');
 const AWS = require('aws-sdk')
 const port = 3001;
+const os = require('os'); 
 
 app.use(cors());
 
@@ -27,7 +28,7 @@ app.use('/api/docs', swagger.router)
 */
 app.get('/status', (req, res) => {
   res.send({
-    message: 'AWS Demo server is up and running!'
+    message: 'AWS Demo server is up and running! Host: ' + os.hostname()
   })
 })
 
